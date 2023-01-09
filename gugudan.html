@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단 게임</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="css/common/reset.css" />
+    <!-- <link rel="stylesheet" href="css/index.css" /> -->
+  </head>
+  <body>
+    <div class="gugu__wrap">
+      <div id="app">
+        <p>
+          <label for="Timer">남은 시간 : </label>
+          <input id="Timer" type="text" value="" readonly />
+        </p>
+        <h2 class="quest">{{num1}} X {{num2}} = ??</h2>
+        <input type="text" v-model="tiped" @keyup.enter="click" />
+        <button class="click" type="submit" @:click="click">
+          정답 확인하기!!
+        </button>
+        <h3>{{resultnum}}</h3>
+        <h3>{{countScore}} 점!</h3>
+        <div id="endGame" class="endGame">
+          <div class="text">
+            <div class="title">수고하셨습니다.</div>
+            <div class="score">점수는 : {{countScore}} 점 입니다.</div>
+            <div class="regame">
+              <p>
+                <a href="/gugudan.html">재시도</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          num1: Math.ceil(Math.random() * 9),
+          num2: Math.ceil(Math.random() * 9),
+          tiped: "",
+          resultnum: "",
+          countScore: 0,
+        };
+      },
+      methods: {
+        click() {
+          if (this.num1 * this.num2 === parseInt(this.tiped)) {
+            this.resultnum = "정답";
+            this.num1 = Math.ceil(Math.random() * 9);
+            this.num2 = Math.ceil(Math.random() * 9);
+            this.countScore++;
+            this.tiped = "";
+          } else {
+            this.resultnum = "오답";
+            this.tiped = "";
+          }
+        },
+      },
+      computed: {},
+    }).mount("#app");
+  </script>
+  <script>
+    const Timer = document.getElementById("Timer"); //스코어 기록창-분
+    let time = 60000;
+    let min = 1;
+    let sec = 60;
+    let endGame = document.getElementById("endGame");
+    endGame.style.display = "none";
+    Timer.value = min + ":" + "00";
+
+    function TIMER() {
+      PlAYTIME = setInterval(function () {
+        time = time - 1000; //1초씩 줄어듦
+        min = time / (60 * 1000); //초를 분으로 나눠준다.
+
+        if (sec > 0) {
+          sec = sec - 1;
+          Timer.value = Math.floor(min) + ":" + sec; //실수로 계산되기 때문에 소숫점 아래를 버리고 출력해준다.
+        }
+        if (sec === 0) {
+          console.log(endGame);
+          endGame.style.display = "block";
+          sec = 60;
+          Timer.value = Math.floor(min) + ":" + "00";
+        }
+      }, 1000); //1초마다
+    }
+
+    TIMER();
+    setTimeout(function () {
+      clearInterval(PlAYTIME);
+    }, 60000); //3분이 되면 타이머를 삭제한다.
+  </script>
+  <style scoped>
+    @import url(css/index.css);
+  </style>
+</html>

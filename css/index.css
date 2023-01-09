@@ -1,0 +1,115 @@
+.gugu__wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.click {
+  margin-bottom: 50px;
+}
+
+#app > p > label {
+  font-size: 40px;
+}
+#app > p {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  border: none;
+}
+
+#app > p > label {
+  font-size: 40px;
+}
+#app > p {
+  display: flex;
+  align-items: center;
+}
+p > input {
+  width: 80px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 40px;
+}
+.quest {
+  margin-top: 140px;
+  font-size: 30px;
+}
+
+#app > input {
+  width: 160px;
+  margin: 30px auto 20px auto;
+  padding: 20px;
+  outline: none;
+  font-size: 24px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+button {
+  width: 160px;
+  margin: 0 auto;
+  padding: 20px 0px;
+  border: none;
+  background-color: #365bab;
+  font-size: 20px;
+  font-weight: bold;
+  color: #eaebe4;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+h3 {
+  font-size: 30px;
+}
+
+.endGame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 24px;
+  transform: translate(-50%);
+}
+.regame {
+  margin-top: 40px;
+}
+.regame > p {
+  width: 100px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #365bab;
+  font-weight: bold;
+  text-align: center;
+}
+.regame > p > a {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-size: 24px;
+  color: #eaebe4;
+  line-height: 50px;
+}
