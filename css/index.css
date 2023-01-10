@@ -85,19 +85,18 @@ h3 {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background-color: #eaebe4;
 }
 .text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 24px;
-  transform: translate(-50%);
+  font-size: 40px;
+  font-weight: bold;
 }
 .regame {
   margin-top: 40px;
 }
 .regame > p {
+  display: flex;
+  align-items: center;
   width: 100px;
   height: 50px;
   margin: 0 auto;
@@ -111,5 +110,4 @@ h3 {
   height: auto;
   font-size: 24px;
   color: #eaebe4;
-  line-height: 50px;
 }
